@@ -30,6 +30,7 @@ public class Player {
 	public int makeBet(){
 		if(chips==0){
 			System.out.println("您已沒籌碼，無法繼續下注了喔!");
+			bet=0;
 		}
 		else{
 			bet=1;
@@ -38,30 +39,6 @@ public class Player {
 	}
 	
 	public boolean hitMe(){
-//		int total=0;
-//		int temp=0;
-//		for(int i=0; i<oneRoundCard.size();i++){
-//			temp=oneRoundCard.get(i).getRank();
-//			if(temp==11|temp==12|temp==13)
-//			{
-//				temp=10;
-//			}
-//			else if(temp==1)
-//			{
-//				temp=11;
-//			}
-//			total+=temp;
-//		}
-//		for(int i=0; i<oneRoundCard.size();i++){
-//			if(oneRoundCard.get(i).getRank()==1&&total>21){
-//				total-=10;
-//			}
-//		}
-//		if(total<=16)
-//			return true;
-//		else
-//			return false;
-		
 		if(getTotalValue()<=16)
 			return true;
 		else
@@ -71,7 +48,8 @@ public class Player {
 	public int getTotalValue(){
 		int total=0;
 		int temp=0;
-		for(int i=0; i<oneRoundCard.size();i++){
+		for(int i=0; i<oneRoundCard.size();i++)
+		{
 			temp=oneRoundCard.get(i).getRank();
 			if(temp==11|temp==12|temp==13)
 			{
@@ -83,9 +61,14 @@ public class Player {
 			}
 			total+=temp;
 		}
-		for(int i=0; i<oneRoundCard.size();i++){
-			if(oneRoundCard.get(i).getRank()==1&&total>21){
+		
+		for(int i=0; i<oneRoundCard.size();i++)
+		{
+			if(oneRoundCard.get(i).getRank()==1&&total>21)
+			{
 				total-=10;
+				if(total<=21)
+					break;
 			}
 		}
 		return total;
