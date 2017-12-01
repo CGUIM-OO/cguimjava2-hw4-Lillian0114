@@ -70,7 +70,7 @@ public class Deck {
 		}
 		usedCard.clear();
 		nUsed=0;
-		openCard.clear();
+		openCard.clear(); //當洗牌時要重置 ArrayList openCard，因為會把所有牌收回去洗牌，所以"明牌"也須收回。
 	}
 	
 	/**
@@ -82,17 +82,18 @@ public class Deck {
 	 * In the end, we will return oneCard.
 	 * @return oneCard ( when someone want newCard)
 	 */
-	public Card getOneCard(boolean isOpened){
+	public Card getOneCard(boolean isOpened){ 
 		Card oneCard = null;
 		if(cards.size()==0){
 			shuffle();
-			getOneCard(isOpened);
+			getOneCard(isOpened); //利用遞迴的方式，將isOpened傳入getOneCard方法裡。
 		}
 		else{
 			oneCard= cards.get(0);
 			usedCard.add(oneCard);
-			if(isOpened==true){
-				openCard.add(oneCard);
+			if(isOpened==true){ 
+				openCard.add(oneCard); /*拿到一張牌，加入isOpened參數，決定發出去的牌是開著還是蓋起來的，如果參數isOpened為true，
+										代表此牌為明牌，故需要再openCard的ArrayList加入此oneCard。*/
 			}
 			cards.remove(0);
 			nUsed++;
@@ -101,7 +102,7 @@ public class Deck {
 	}
 	
 	public ArrayList<Card> getOpenedCard(){
-		return openCard;
+		return openCard; //回傳此副牌中所有打開過的牌。
 	}
 	
 }
