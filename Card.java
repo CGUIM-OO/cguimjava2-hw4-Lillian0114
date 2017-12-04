@@ -25,12 +25,11 @@ public class Card {
 	 * In the end println the card.
 	 */
 	public void printCard(){
-		String[] RankArray={"Ace","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Jack","Queen","King"};
-//		if(rank==1)
-//			System.out.println(suit.toString()+" Ace");
-//		else
-//			System.out.println(suit.toString()+" "+rank);
-		System.out.println(suit.toString()+" "+RankArray[rank-1]);
+
+		if(rank==1)
+			System.out.println(suit.toString()+" Ace");
+		else
+		System.out.println(suit.toString()+" "+rank);
 	}
 	
 	public Suit getSuit(){
