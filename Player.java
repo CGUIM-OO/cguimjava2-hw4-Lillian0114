@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+﻿import java.util.ArrayList;
 
 public class Player {
 	private String name; //玩家姓名
@@ -7,8 +7,7 @@ public class Player {
 	private ArrayList<Card> oneRoundCard; //此牌局的卡
 	
 	public Player(String name, int chips){
-		this.name=name; 		/*因為local variable與instance variable一樣(shadowing)，
-			     故當要呼叫instance variable時，需要用this關鍵字*/
+		this.name=name; //因為local variable與instance variable一樣(shadowing)，故當要呼叫instance variable時，需要用this關鍵字
 		this.chips=chips;
 	}
 	public String getName(){

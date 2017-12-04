@@ -93,7 +93,7 @@ public class Deck {
 			usedCard.add(oneCard);
 			if(isOpened==true){ 
 				openCard.add(oneCard); /*拿到一張牌，加入isOpened參數，決定發出去的牌是開著還是蓋起來的，如果參數isOpened為true，
-										代表此牌為明牌，故需要再openCard的ArrayList加入此oneCard。*/
+							         代表此牌為明牌，故需要再openCard的ArrayList加入此oneCard。*/
 			}
 			cards.remove(0);
 			nUsed++;
